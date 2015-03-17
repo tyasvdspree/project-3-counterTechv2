@@ -2,6 +2,7 @@ import twitter4j.*;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +18,7 @@ public class TwitterReader
     List<String> queryAttitude = Arrays.asList(attitude);
     List<String> searchQuery = Arrays.asList(searchString);
 
-    public void twitterSearch() throws TwitterException, IOException, InterruptedException
+    public void twitterSearch() throws TwitterException, IOException, InterruptedException, ClassNotFoundException, SQLException
         {
         for (int i = 0; i < queryAttitude.size(); i++) ;
         {
@@ -36,9 +37,8 @@ public class TwitterReader
                 List<Status> tweets = result.getTweets();
                 for (Status tweet : tweets)
                     {
-                        String dbName = "Twitterdb";
-                        TwitterDB twitterDB = new TwitterDB(dbName);
-
+                        TwitterDB twitterDB = new TwitterDB("twitterdb");
+                        twitterDB.updatedb(tweet.getId(), tweet.getUser().getScreenName(), tweet.getText(), tweet.getRetweetCount(), tweet.getFavoriteCount(), tweet.getCreatedAt());
                     }
                 }
             while ((query = result.nextQuery()) != null);
