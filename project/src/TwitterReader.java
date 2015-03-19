@@ -20,10 +20,10 @@ public class TwitterReader
 
     public void twitterSearch() throws TwitterException, IOException, InterruptedException, ClassNotFoundException, SQLException
         {
-        for (int i = 0; i < queryAttitude.size(); i++) ;
-        {
-        for (int j = 0; j < searchQuery.size(); j++) ;
-        {
+        for (int i = 0; i < queryAttitude.size(); i++)
+            {
+        for (int j = 0; j < searchQuery.size(); j++)
+            {
         String queryString = searchQuery.get(j) + "+" + queryAttitude.get(i);
         Twitter twitter = new TwitterFactory().getInstance();
         {
