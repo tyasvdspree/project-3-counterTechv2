@@ -27,7 +27,7 @@ public class TwitterDB
             }
     public void updatedb(Long tweetId, String tweetUser, String tweetText, int tweetRetweetCount, int tweetFavoriteCount, Date tweetCreatedAt) throws ClassNotFoundException, SQLException
         {
-        PreparedStatement psInsert = conn.prepareStatement("INSERT INTO tweet(TweetUser)");
+        PreparedStatement psInsert = conn.prepareStatement("INSERT INTO tweet(tweetId INT, tweetUser VARCHAR, tweetText VARCHAR, tweetRetweetCount INT, tweetFavoriteCount INT, tweetCreatedAt DATE)");
         psInsert.executeUpdate();
         }
     }

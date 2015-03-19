@@ -16,6 +16,7 @@ public class NsApiReader
     {
         ClientConfig config = new DefaultClientConfig();
         Client client = Client.create(config);
+        //todo: add authorisation to the http header.
         WebResource service = client.resource(UriBuilder.fromUri("http://christianlangejan@hotmail.com:APREZyc2aQ0I1viyFEMmhsD6-ciFxzNGXgA5NTLCkj2bq_aITYjxdQ@webservices.ns.nl/ns-api-avt?station=RTD").build());
 
         String receivedXML = service.accept(MediaType.APPLICATION_XML).get(String.class);
@@ -23,5 +24,6 @@ public class NsApiReader
 
         System.out.println(receivedXML);
         //System.out.println(soapDatainJsonObject.getJSONObject().getJSONObject().getString());
+        //todo: make a NsDB (new class) see twitterDB class for expel.
     }
 }
