@@ -52,52 +52,5 @@ public class TwitterReader
         }
         }
         }
-        /*AsyncTwitterFactory factory = new AsyncTwitterFactory();
-        AsyncTwitter twitter = factory.getInstance();
-        twitter.addListener(new TwitterAdapter()
-        {
-            TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
-            StatusListener listener = new StatusListener()
-            {
-            @Override
-            public void onStatus(Status status)
-                {
-                System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
-                }
-
-            @Override
-            public void onDeletionNotice(StatusDeletionNotice statusDeletionNotice)
-                {
-
-                }
-
-            @Override
-            public void onTrackLimitationNotice(int i)
-                {
-
-                }
-
-            @Override
-            public void onScrubGeo(long l, long l1)
-                {
-
-                }
-
-            @Override
-            public void onStallWarning(StallWarning stallWarning)
-                {
-
-                }
-
-            @Override
-            public void onException(Exception e)
-                {
-
-                }
-            };
-            twitterStream.addListener(listener);
-            twitterStream.sample();
-        });
-    }*/
         }
     }
