@@ -37,13 +37,20 @@ public class NsApiReader
 
         // Get the protected web page:
         WebResource webResource = client.resource("http://webservices.ns.nl/ns-api-avt?station=RTD");
-        departTimes = webResource.get(String.class);
-        Stringrestucture();
+        String receivedXML = webResource.accept(MediaType.APPLICATION_XML).get(String.class);
+        JSONObject tempName = XML.toJSONObject(receivedXML);
 
+        departTimes = webResource.get(String.class);
+        //Stringrestucture();
+
+<<<<<<< HEAD
     //todo write to database
 
 
         System.out.println(departTimes);
+=======
+        //System.out.println(departTimes);
+>>>>>>> 7eb6b6b7ab49ee32bf269e0bb5ff400824d26880
 
 
 
@@ -67,6 +74,8 @@ public class NsApiReader
         departTimes=departTimes.replaceAll("\t","");
         departTimes=departTimes.replaceAll("\n\n","\n");
         departTimes=departTimes.replaceAll("\n\n","\n");
+        departTimes=departTimes.replaceAll("<.*>","");
+        /*
         departTimes=departTimes.replaceAll("/","");
         departTimes=departTimes.replaceAll("<RitNummer>","");
         departTimes=departTimes.replaceAll("<VertrekTijd>","");
@@ -83,5 +92,6 @@ public class NsApiReader
         departTimes=departTimes.replaceAll("<ReisTip>","");
         departTimes=departTimes.replaceAll("<ActueleVertrekTijden>","");
         departTimes=departTimes.replaceAll("<VertrekkendeTrein>","");
+        */
     }
 }
