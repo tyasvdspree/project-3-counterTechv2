@@ -6,6 +6,7 @@ import java.sql.Statement;
 /**
  * Created by Tyas on 23/03/2015.
  */
+
 public class NsDB
     {
     private Connection conn;

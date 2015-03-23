@@ -37,6 +37,7 @@ public class TwitterReader
                 List<Status> tweets = result.getTweets();
                 for (Status tweet : tweets)
                     {
+                    System.out.print(tweet.getText());
                     TwitterDB twitterDB = new TwitterDB("twitterdb");
                     twitterDB.updatedb(tweet.getId(), tweet.getUser().getScreenName(), tweet.getText(), tweet.getRetweetCount(), tweet.getFavoriteCount(), tweet.getCreatedAt(), queryAttitude.get(i));
                     }

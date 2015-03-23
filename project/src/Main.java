@@ -12,10 +12,10 @@ private static LocalDateTime now = LocalDateTime.now();
 
     public static void main(String[] args) throws Exception
     {
-        Boolean run = true;
+        //Boolean run = true;
         TwitterReader twitterReader = new TwitterReader();
         NsApiReader nsApiReader = new NsApiReader();
-        while (run == true)
+        //while (run == true)
             {
                 if (now.getMinute() % 15 == 0)
                     {

@@ -8,6 +8,7 @@ import java.util.Date;
 /**
  * Created by Tyas on 16/03/2015.
  */
+
 public class TwitterDB
     {
     private Connection conn;
@@ -15,7 +16,7 @@ public class TwitterDB
         public TwitterDB(String dbName) throws ClassNotFoundException, SQLException
             {
                 String dbConnectionString = "jtdb" + dbName + "create=true";
-                String greatString = "GREAT TABLE Tweet(tweetId INT, tweetUser VARCHAR, tweetText VARCHAR, tweetRetweetCount INT, tweetFavoriteCount INT, tweetCreatedAt DATE, tweetAttitude VARCHAR)";
+                String greatString = "CREATE TABLE Tweet(tweetId INT, tweetUser VARCHAR, tweetText VARCHAR, tweetRetweetCount INT, tweetFavoriteCount INT, tweetCreatedAt DATE, tweetAttitude VARCHAR)";
                 Class.forName(driver);
                 conn = DriverManager.getConnection(dbConnectionString);
                 Statement statement = conn.createStatement();
@@ -25,6 +26,7 @@ public class TwitterDB
                         statement.execute(greatString);
                     }
             }
+
     public void updatedb(Long tweetId, String tweetUser, String tweetText, int tweetRetweetCount, int tweetFavoriteCount, Date tweetCreatedAt, String tweetAttitude) throws ClassNotFoundException, SQLException
         {
         Statement s = conn.createStatement();
@@ -46,6 +48,7 @@ public class TwitterDB
             s.close();
             }
         }
+
     public void shutDownDB() throws ClassNotFoundException, SQLException
         {
         if (driver.equals("org.apache.derby.jdbc.EmbeddedDriver"))

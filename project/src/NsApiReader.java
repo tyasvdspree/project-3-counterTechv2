@@ -40,6 +40,9 @@ public class NsApiReader
         departTimes = webResource.get(String.class);
         Stringrestucture();
 
+    //todo write to database
+
+
         System.out.println(departTimes);
 
 
