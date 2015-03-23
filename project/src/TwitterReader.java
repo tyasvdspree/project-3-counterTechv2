@@ -13,10 +13,10 @@ import java.util.List;
 
 public class TwitterReader
     {
-    String[] attitude = {":)", ":("};
-    String[] searchString = {"RdamCentraal", "RCentraal", "RotterdamCentraal", "Rotterdam+Centraal"};
-    List<String> queryAttitude = Arrays.asList(attitude);
-    List<String> searchQuery = Arrays.asList(searchString);
+    private String[] attitude = {":)", ":("};
+    private String[] searchString = {"RdamCentraal", "RCentraal", "RotterdamCentraal", "Rotterdam+Centraal"};
+    private List<String> queryAttitude = Arrays.asList(attitude);
+    private List<String> searchQuery = Arrays.asList(searchString);
 
     public void twitterSearch() throws TwitterException, IOException, InterruptedException, ClassNotFoundException, SQLException
         {
@@ -38,7 +38,7 @@ public class TwitterReader
                 for (Status tweet : tweets)
                     {
                     TwitterDB twitterDB = new TwitterDB("twitterdb");
-                    twitterDB.updatedb(tweet.getId(), tweet.getUser().getScreenName(), tweet.getText(), tweet.getRetweetCount(), tweet.getFavoriteCount(), tweet.getCreatedAt());
+                    twitterDB.updatedb(tweet.getId(), tweet.getUser().getScreenName(), tweet.getText(), tweet.getRetweetCount(), tweet.getFavoriteCount(), tweet.getCreatedAt(), queryAttitude.get(i));
                     }
                 }
             while ((query = result.nextQuery()) != null);

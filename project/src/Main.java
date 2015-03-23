@@ -3,13 +3,25 @@
  * Created by Tyas on 10/03/2015.
  */
 
-import twitter4j.*;
+import java.sql.Time;
+import java.time.LocalDateTime;
 
 public class Main
 {
+private static LocalDateTime now = LocalDateTime.now();
+
     public static void main(String[] args) throws Exception
     {
-        //new TwitterReader().twitterSearch();
-        new NsApiReader().getNsApiData();
+        Boolean run = true;
+        TwitterReader twitterReader = new TwitterReader();
+        NsApiReader nsApiReader = new NsApiReader();
+        while (run == true)
+            {
+                if (now.getMinute() % 15 == 0)
+                    {
+                    twitterReader.twitterSearch();
+                    nsApiReader.getNsApiData();
+                    }
+            }
     }
 }
