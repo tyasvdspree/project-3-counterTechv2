@@ -1,3 +1,4 @@
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 
@@ -7,7 +8,8 @@ import java.util.Date;
 
 /**
  * Created by Tyas on 16/03/2015.
- */
+*/
+
 public class TwitterDB
     {
     private Connection conn;
@@ -30,6 +32,7 @@ public class TwitterDB
         Statement s = conn.createStatement();
         try
             {
+
             ResultSet resultSet = s.executeQuery("SELECT tweetId FROM Tweet");
             while (resultSet.next())
                 {
@@ -73,3 +76,4 @@ public class TwitterDB
             }
         }
     }
+
